@@ -45,7 +45,7 @@ run_top() {
 			cpu=`ps aux | grep "${ps_ele}" | grep -v "grep" | head -n 1 | awk '{print $3}'`
 			mem=`ps aux | grep "${ps_ele}" | grep -v "grep" | head -n 1 | awk '{print $6}'`
 			ps_ele_arr=(`echo "${ps_ele}" | tr "/" " "`)
-			echo "${time}|${ps_ele}|${cpu}|${mem}" >> "./${res_dir}/${ps_ele_arr[${ps_ele_arr#}]}_${res_file}.txt"	 
+			echo "${time},${ps_ele},${cpu},${mem}" >> "./${res_dir}/${ps_ele_arr[${ps_ele_arr#}]}_${res_file}.csv"	 
 		done 
 		sleep ${sleep_secs} 
 	done
