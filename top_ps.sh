@@ -1,6 +1,7 @@
 #! /bin/bash
-
-ps_arr=("/sbin/init" "gnome-shell")
+#  Below are the two demo processes /sbin/init and gnome-shell
+# ps_arr=("/sbin/init" "gnome-shell")
+ps_arr=("usdm" "euim" "vehicle_control" "strategy" "stitching" "perception" "lam" "planning" "diagnostic" )
 sleep_secs=5
 res_file="out"
 res_dir="./result"
