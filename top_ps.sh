@@ -1,6 +1,7 @@
 #! /bin/bash
 #  Below are the two demo processes /sbin/init and gnome-shell
-# ps_arr=("/sbin/init" "gnome-shell")
+# ps_arr=("phm_server" "app_flexidag_imu" "avm-parking")
+# ps_arr=("/usr/bin/gnome-shell" "/lib/systemd/systemd-udevd" "/usr/bin/flameshot")
 ps_arr=("usdm" "euim" "vehicle_control" "strategy" "stitching" "perception" "lam" "planning" "diagnostic" )
 sleep_secs=5
 res_file="out"
@@ -46,8 +47,9 @@ run_top() {
 			cpu=`ps aux | grep "${ps_ele}" | grep -v "grep" | head -n 1 | awk '{print $3}'`
 			mem=`ps aux | grep "${ps_ele}" | grep -v "grep" | head -n 1 | awk '{print $6}'`
 			ps_ele_arr=(`echo "${ps_ele}" | tr "/" " "`)
+			idx=${#ps_ele_arr[*]}
 			if [ $cpu ]; then
-				echo "${time},${ps_ele},${cpu},${mem}" >> "./${res_dir}/${ps_ele_arr[${ps_ele_arr#}]}_${res_file}.csv"	 
+				echo "${time},${ps_ele},${cpu},${mem}" >> "./${res_dir}/${ps_ele_arr[$idx-1]}_${res_file}.csv"	 
 			fi
 		done 
 		sleep ${sleep_secs} 
