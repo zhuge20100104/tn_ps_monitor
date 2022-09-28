@@ -39,7 +39,7 @@ The architecture of this tool is rather simple. We get the information of CPU& m
     ./top_ps.sh
     ```
 + Get the the files back to local ubuntu
-    The top_ps.sh is a dead loop to collect the process info all the way long. You need to kill it use "kill -9 {process_id}" or "Ctrl + Z". Then you can re-pack the whole folder as gzip file, the dump the gz file to local Ubuntu. By now I don't know how to dump a file to local Ubuntu from QNX, you can consult your team members for more details.
+    The top_ps.sh is a dead loop to collect the process info all the way long. You need to kill it use "kill -9 {process_id}" or "Ctrl + C". Then you can re-pack the whole folder as gzip file, the dump the gz file to local Ubuntu. By now I don't know how to dump a file to local Ubuntu from QNX, you can consult your team members for more details.
 
     ```
     ps -ef | grep top_ps.sh | grep -v "grep" | awk '{print $2}' | xargs kill -9
